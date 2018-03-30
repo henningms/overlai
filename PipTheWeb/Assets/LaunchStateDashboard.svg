@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="767 273 387 219">
+  <g id="LaunchStateDashboard" transform="translate(41 -60)">
+    <g id="Group_1" data-name="Group 1" transform="translate(0 -2)">
+      <g id="Rectangle_4" data-name="Rectangle 4" style="fill: none; stroke: #707070;" transform="translate(798 353)">
+        <rect style="stroke: none;" width="242" height="178"/>
+        <rect style="fill: none;" x="0.5" y="0.5" width="241" height="177"/>
+      </g>
+      <rect id="Rectangle_5" data-name="Rectangle 5" style="fill: #9c9a9a; opacity: 0.22;" width="240" height="12" transform="translate(799 354)"/>
+    </g>
+    <g id="Rectangle_1" data-name="Rectangle 1" style="fill: none; stroke: #707070;" transform="translate(726 333)">
+      <rect style="stroke: none;" width="387" height="219"/>
+      <rect style="fill: none;" x="0.5" y="0.5" width="386" height="218"/>
+    </g>
+    <rect id="Rectangle_2" data-name="Rectangle 2" style="fill: #9c9a9a; opacity: 0.22;" width="385" height="12" transform="translate(727 539)"/>
+    <g id="Rectangle_3" data-name="Rectangle 3" style="stroke: #707070; fill: #f8f8f8;" transform="translate(979 462)">
+      <rect style="stroke: none;" width="122" height="69"/>
+      <rect style="fill: none;" x="0.5" y="0.5" width="121" height="68"/>
+    </g>
+  </g>
+</svg>

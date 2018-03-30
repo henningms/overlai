@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="PipTheWeb.ShareActivation"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:PipTheWeb"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Background>
+        <AcrylicBrush
+            BackgroundSource="HostBackdrop"
+            FallbackColor="#FFF8F8F8"
+            TintColor="#FFF8F8F8"
+            TintOpacity="0.8" />
+    </Page.Background>
+
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock
+            Margin="64,24"
+            HorizontalAlignment="Center"
+            FontSize="20"
+            FontWeight="Thin"
+            Foreground="Black"
+            HorizontalTextAlignment="Center"
+            Text="Launching website in picture-in-picture mode."
+            TextWrapping="Wrap" />
+
+        <ProgressRing
+            Width="96"
+            Height="96"
+            HorizontalAlignment="Center"
+            IsActive="True" />
+    </StackPanel>
+</Page>

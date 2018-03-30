@@ -3,10 +3,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Core;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
+using Windows.UI.Core;
+using Windows.UI.Popups;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -70,9 +77,32 @@ namespace PipTheWeb
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
+
+                ExtendAcrylicIntoTitleBar();
             }
         }
 
+        protected override async void OnActivated(IActivatedEventArgs args)
+        {
+            if (args.Kind == ActivationKind.Protocol)
+            {
+                var eventArgs = args as ProtocolActivatedEventArgs;
+
+                var absoluteUri = eventArgs.Uri.AbsoluteUri;
+                var uriToBrowse = absoluteUri.Remove(0, absoluteUri.IndexOf(':') + 1);
+
+                var url = new Uri(uriToBrowse);
+
+                Window.Current.Content = new WebView { Source = url };
+                Window.Current.Activate();
+
+                await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay);
+            }
+            else
+            {
+                base.OnActivated(args);
+            }
+        }
         /// <summary>
         /// Invoked when Navigation to a certain page fails
         /// </summary>
@@ -95,6 +125,45 @@ namespace PipTheWeb
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+
+        /// Extend acrylic into the title bar. 
+        private void ExtendAcrylicIntoTitleBar()
+        {
+            CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
+            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            titleBar.ButtonBackgroundColor = Colors.Transparent;
+            titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+            titleBar.ButtonForegroundColor = Colors.Black;
+            
+        }
+
+        protected override async void OnShareTargetActivated(ShareTargetActivatedEventArgs args)
+        {
+            var shareOperation = args.ShareOperation;
+
+            if (shareOperation.Data.Contains(StandardDataFormats.WebLink))
+            {
+                var url = await shareOperation.Data.GetWebLinkAsync();
+
+                args.ShareOperation.ReportStarted();
+
+                if (Window.Current.Content == null)
+                {
+                    Window.Current.Content = new ShareActivation();
+                    Window.Current.Activate();
+                }
+
+                await Task.Delay(1250);
+
+                var success = await Windows.System.Launcher.LaunchUriAsync(new Uri($"pipweb:{url.AbsoluteUri}"));
+
+                args.ShareOperation.ReportCompleted();
+            }
+            else
+            {
+                args.ShareOperation.ReportError("Overlé does not understand this format");
+            }
         }
     }
 }

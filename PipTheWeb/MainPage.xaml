@@ -2,12 +2,40 @@
     x:Class="PipTheWeb.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:PipTheWeb"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:PipTheWeb"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="#FFF8F8F8">
+        <!--  Webview  -->
+        <WebView
+            x:Name="PipWebView"
+            IsHitTestVisible="False"
+            Opacity="0" />
 
+
+        <!--  Launch state  -->
+        <StackPanel
+            x:Name="LaunchStatePanel"
+            Margin="32,-32,32,32"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <Image
+                Width="256"
+                Height="145"
+                HorizontalAlignment="Center"
+                Source="Assets/LaunchStateDashboard.svg" />
+            <TextBlock
+                Margin="64,24"
+                HorizontalAlignment="Center"
+                FontSize="20"
+                FontWeight="Thin"
+                Foreground="Black"
+                HorizontalTextAlignment="Center"
+                Text="Use the share button in your browser or application to open a website in picture-in-picture."
+                TextWrapping="Wrap" />
+
+        </StackPanel>
     </Grid>
 </Page>
