@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="516fd475-5be9-4c41-9ddf-0dec52570d44" Publisher="CN=henni" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="516fd475-5be9-4c41-9ddf-0dec52570d44" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="991HenningM.Stephansen.Overlai" Publisher="CN=8DB2E1CB-96FD-4C08-A963-D4951482FFA7" Version="1.1.0.0" />
+  <mp:PhoneIdentity PhoneProductId="b5fe4c2f-a853-4cb4-8bae-fb7202da166c" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>PipTheWeb</DisplayName>
-    <PublisherDisplayName>henni</PublisherDisplayName>
+    <DisplayName>Overlai</DisplayName>
+    <PublisherDisplayName>Henning M. Stephansen</PublisherDisplayName>
     <Logo>assets\Small\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="PipTheWeb.App">
-      <uap:VisualElements DisplayName="PipTheWeb" Square150x150Logo="assets\Small\Medium150x150Logo.png" Square44x44Logo="assets\Small\AppList.png" Description="PipTheWeb" BackgroundColor="transparent">
+      <uap:VisualElements DisplayName="Overlai" Square150x150Logo="assets\Small\Medium150x150Logo.png" Square44x44Logo="assets\Small\AppList.png" Description="Overlai" BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="assets\Small\Wide310x150Logo.png" Square71x71Logo="assets\Small\Small71x71Logo.png" Square310x310Logo="assets\Small\Large310x310Logo.png">
         </uap:DefaultTile>
         <uap:SplashScreen Image="assets\Small\SplashScreen.png" BackgroundColor="transparent" />
