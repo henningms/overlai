@@ -36,6 +36,11 @@
                 Text="Use the share button in your browser or application to open a website in picture-in-picture."
                 TextWrapping="Wrap" />
 
+            <Button
+                x:Name="OpenWebsiteButton"
+                HorizontalAlignment="Center"
+                Click="OpenWebsiteButton_Click"
+                Content="Open website manually" />
         </StackPanel>
     </Grid>
 </Page>
